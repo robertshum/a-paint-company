@@ -1,3 +1,5 @@
+import './components.css'
+
 function PaintBox(props) {
 
   const item = props.item;

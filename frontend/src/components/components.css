@@ -1,0 +1,55 @@
+.paint-stock {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 10px;
+}
+
+/* flex based on landscape/vertical mode */
+/* .stock-box {
+
+} */
+
+.paint-box {
+  width: 100px;
+  height: 100px;
+  border: 1px solid black;
+  padding: 1px;
+  margin: 1px;
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.topnav {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: #ffb302;
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  /* entire width of the device */
+  width: 100%;
+  align-items: center;
+}
+
+.topnav a {
+  color: black;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  display: block;
+}
+
+.active {
+  background-color: #ffb302;
+  color: black;
+}
