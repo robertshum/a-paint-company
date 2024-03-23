@@ -1,0 +1,64 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "userName": "johndoe",
+      "firstName": "john",
+      "lastName": "doe",
+      "role": "View"
+    },
+    {
+      "id": 2,
+      "userName": "janedoe",
+      "firstName": "jane",
+      "lastName": "doe",
+      "role": "PaintAdmin"
+    },
+    {
+      "id": 3,
+      "userName": "painter1",
+      "firstName": "rob",
+      "lastName": "shum",
+      "role": "Painter"
+    },
+    {
+      "id": 4,
+      "userName": "admin",
+      "firstName": "adam",
+      "lastName": "doe",
+      "role": "Admin"
+    }
+  ],
+  "paint": [
+    {
+      "id": 1,
+      "name": "White",
+      "hex": "#FFFFFF",
+      "stock": 10
+    },
+    {
+      "id": 2,
+      "name": "Blue",
+      "hex": "#00A3FF",
+      "stock": 8
+    },
+    {
+      "id": 3,
+      "name": "Grey",
+      "hex": "#8B8B8B",
+      "stock": 0
+    },
+    {
+      "id": 4,
+      "name": "Black",
+      "hex": "#000000",
+      "stock": 8
+    },
+    {
+      "id": 5,
+      "name": "Purple",
+      "hex": "#FF33FF",
+      "stock": 2
+    }
+  ]
+}

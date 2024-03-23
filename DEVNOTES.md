@@ -18,6 +18,16 @@ import { someMethod } from 'my-dep'
 ## Express
 * REST Endpoint set-up is fast, good for PT.
 
+# REST Resources
+
+* GET /api/paints
+* GET /api/paints/:id
+* PUT /api/paints/:id
+
+* GET /api/users
+* GET /api/users/:id
+* PUT /api/users/:id
+
 # User Workflow
 
 Possible Menu Options and pages
