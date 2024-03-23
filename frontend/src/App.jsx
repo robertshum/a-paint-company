@@ -19,13 +19,14 @@ function App() {
 
   return (
     <>
-      <div>
+      <div className="stock-box">
         <h3>Available</h3>
         {data.map((item) => (
           item.stock > 6 && (
             <PaintBox
               key={item.id}
-              item={item} />
+              item={item}
+              edit={false} />
           )
         ))}
 
@@ -34,7 +35,8 @@ function App() {
           item.stock <= 5 && item.stock > 0 && (
             <PaintBox
               key={item.id}
-              item={item} />
+              item={item}
+              edit={false} />
           )
         ))}
 
@@ -43,7 +45,8 @@ function App() {
           item.stock === 0 && (
             <PaintBox
               key={item.id}
-              item={item} />
+              item={item} 
+              edit={false}/>
           )
         ))}
 
