@@ -1,7 +1,6 @@
 import './App.css';
-
+import PaintBox from './components/PaintBox';
 import { useQuery } from 'react-query';
-
 
 function App() {
 
@@ -24,33 +23,27 @@ function App() {
         <h3>Available</h3>
         {data.map((item) => (
           item.stock > 6 && (
-            <div key={item.id}>
-              <p>Paint Name: {item.name}</p>
-              <p>HEX: {item.hex}</p>
-              <p>Stock: {item.stock}</p>
-            </div>
+            <PaintBox
+              key={item.id}
+              item={item} />
           )
         ))}
 
         <h3>Low Stock</h3>
         {data.map((item) => (
           item.stock <= 5 && item.stock > 0 && (
-            <div key={item.id}>
-              <p>Paint Name: {item.name}</p>
-              <p>HEX: {item.hex}</p>
-              <p>Stock: {item.stock}</p>
-            </div>
+            <PaintBox
+              key={item.id}
+              item={item} />
           )
         ))}
 
         <h3>Out of Stock</h3>
         {data.map((item) => (
           item.stock === 0 && (
-            <div key={item.id}>
-              <p>Paint Name: {item.name}</p>
-              <p>HEX: {item.hex}</p>
-              <p>Stock: {item.stock}</p>
-            </div>
+            <PaintBox
+              key={item.id}
+              item={item} />
           )
         ))}
 
