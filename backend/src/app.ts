@@ -21,13 +21,32 @@ router.get('/paints', (req: Request, res: Response) => {
 });
 
 // Update Paint stock
-router.post('/paints', (req: Request, res: Response) => {
+router.patch('/paints', (req: Request, res: Response) => {
   const data = JSON.parse(fs.readFileSync(dbPath, "utf-8"));
   const newData = req.body;
   console.log("newData", newData);
 
   //update the stock here
   data.paint = newData.paint;
+
+  //persist:
+  fs.writeFileSync(dbPath, JSON.stringify(data, null, 2));
+  res.json(200);
+});
+
+router.get('/users', (req: Request, res: Response) => {
+  const data = JSON.parse(fs.readFileSync(dbPath, "utf-8"));
+  res.json(data.users);
+});
+
+// Update user settings
+router.patch('/users', (req: Request, res: Response) => {
+  const data = JSON.parse(fs.readFileSync(dbPath, "utf-8"));
+  const newData = req.body;
+  console.log("newData", newData);
+
+  //update the user here
+  data.users = newData.users;
 
   //persist:
   fs.writeFileSync(dbPath, JSON.stringify(data, null, 2));
