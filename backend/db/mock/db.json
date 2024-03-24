@@ -31,6 +31,14 @@
       "lastName": "doe",
       "role": "Admin",
       "enabled": true
+    },
+    {
+      "id": 5,
+      "userName": "painter2",
+      "firstName": "bad",
+      "lastName": "painter",
+      "role": "Painter",
+      "enabled": false
     }
   ],
   "paint": [
@@ -38,7 +46,7 @@
       "id": 1,
       "name": "White",
       "hex": "#FFFFFF",
-      "stock": 10
+      "stock": 9
     },
     {
       "id": 2,

@@ -6,6 +6,11 @@
   margin: 10px;
 }
 
+.inline {
+  display: flex;
+  flex-direction: row;
+}
+
 /* flex based on landscape/vertical mode */
 /* .stock-box {
 

@@ -3,7 +3,11 @@ import './components.css';
 
 function UserBox(props) {
 
-  const item = props.item;
+  const user = props.item;
+
+  // Initialize state for the checkbox value
+  const [isChecked, setIsChecked] = useState(user.enabled);
+
   // const edit = props.edit;
 
   // const [count, setCount] = useState(item.stock);
@@ -22,14 +26,24 @@ function UserBox(props) {
   //   props.handleGeneralUserChange(item.id, newStock);
   // }
 
+  const handleEnabledChange = () => {
+    // Toggle the value of isChecked when the checkbox is clicked
+    setIsChecked(!isChecked);
+  };
+
   return (
     <>
-      <div className="paint-stock" key={item.id}>
-        <p>Username: {item.userName}</p>
-        <p>First Name: {item.firstName}</p>
-        <p>Last Name: {item.lastName}</p>
-        <p>Role: {item.role}</p>
-        <p>Enabled: {item.enabled ? 'true' : 'false'}</p>
+      <div className="paint-stock" key={user.id}>
+        <p>Username: {user.userName}</p>
+        <p>First Name: {user.firstName}</p>
+        <p>Last Name: {user.lastName}</p>
+        <p>Role: {user.role}</p>
+        <span className='inline'>
+          <p>Enabled: </p>
+          <input type="checkbox"
+            checked={isChecked}
+            onChange={handleEnabledChange} />
+        </span >
       </div >
     </>
   );

@@ -31,7 +31,7 @@ function EditPaint() {
     console.log("updatedStock", updatedStock);
     if (updatedStock) {
       const response = await fetch(`${API_LOC}:${PORT}/api/paints/`, {
-        method: 'POST',
+        method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
         },
