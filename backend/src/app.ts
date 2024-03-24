@@ -11,9 +11,26 @@ const app = express();
 // TODO might need to update for security reasons
 app.use(cors());
 
+// Middleware to parse JSON request bodies
+app.use(express.json());
+
 app.get('/api/paints', (req: Request, res: Response) => {
   const data = JSON.parse(fs.readFileSync(dbPath, "utf-8"));
   res.json(data.paint);
+});
+
+// Update Paint stock
+app.post('/api/paints', (req: Request, res: Response) => {
+  const data = JSON.parse(fs.readFileSync(dbPath, "utf-8"));
+  const newData = req.body;
+  console.log("newData", newData);
+
+  //update the stock here
+  data.paint = newData.paint;
+
+  //persist:
+  fs.writeFileSync(dbPath, JSON.stringify(data, null, 2));
+  res.json(200);
 });
 
 app.get('/api/paintremoval', (req: Request, res: Response) => {
