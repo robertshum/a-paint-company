@@ -6,6 +6,8 @@ function PaintBox(props) {
   const item = props.item;
   const edit = props.edit;
 
+  const formId = item.id + "paint-form-id";
+
   const [count, setCount] = useState(item.stock);
 
   function handleStockChange(value) {
@@ -30,14 +32,17 @@ function PaintBox(props) {
           style={{ backgroundColor: item.hex }} />
 
         {edit === "full" ? (
-          <input
-            type="number"
-            id="paint-form"
-            name="paint-name"
-            min="0"
-            max="100"
-            value={count}
-            onChange={(e) => handleStockChange(e.target.value)} />
+          <>
+            <label htmlFor={formId}>Stock:</label>
+            <input
+              type="number"
+              id={formId}
+              name="paint-name"
+              min="0"
+              max="100"
+              value={count}
+              onChange={(e) => handleStockChange(e.target.value)} />
+          </>
         ) : (
           <p>Stock: {item.stock}</p>
         )}

@@ -45,7 +45,7 @@ router.patch('/users', (req: Request, res: Response) => {
   const newData = req.body;
   console.log("newData", newData);
 
-  //update the stock here
+  //update the user here
   data.users = newData.users;
 
   //persist:

@@ -6,7 +6,7 @@
       "firstName": "john",
       "lastName": "doe",
       "role": "View",
-      "enabled": "true"
+      "enabled": true
     },
     {
       "id": 2,
@@ -46,7 +46,7 @@
       "id": 1,
       "name": "White",
       "hex": "#FFFFFF",
-      "stock": 9
+      "stock": 88
     },
     {
       "id": 2,

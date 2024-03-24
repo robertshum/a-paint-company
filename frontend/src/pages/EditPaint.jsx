@@ -4,9 +4,9 @@ import { useNavigate } from 'react-router-dom';
 import PaintBox from '../components/PaintBox';
 const API_LOC = import.meta.env.VITE_API_LOCATION;
 const PORT = import.meta.env.VITE_API_PORT;
+
 function EditPaint() {
 
-  console.log(API_LOC);
   const navigate = useNavigate();
   const [updatedStock, setUpdatedStock] = useState(null);
 
@@ -43,7 +43,7 @@ function EditPaint() {
       }
 
       // Return the updated data
-      navigate('/');
+      return navigate('/');
     }
 
     //TODO submitting no changes

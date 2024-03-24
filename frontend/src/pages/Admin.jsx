@@ -5,19 +5,13 @@ import UserBox from '../components/UserBox';
 
 const API_LOC = import.meta.env.VITE_API_LOCATION;
 const PORT = import.meta.env.VITE_API_PORT;
+
 function Admin() {
 
-  console.log(API_LOC);
   const navigate = useNavigate();
-  const [updatedStock, setUpdatedStock] = useState(null);
+  const [users, updateUsers] = useState([]);
 
-  // state for enabled/disabled
-  const [selectedValue, setSelectedValue] = useState('');
-  const handleChange = (event) => {
-    setSelectedValue(event.target.value);
-  };
-
-  // Get Paint Stock on the main page
+  // Get Users
   const { data, isLoading, error } = useQuery('users', async () => {
     const response = await fetch(`${API_LOC}:${PORT}/api/users`);
     if (!response.ok) {
@@ -27,30 +21,27 @@ function Admin() {
     return response.json();
   });
 
-  function handleGeneralUserChange(id, newStock) {
-
-    // const updatedStock = data.map(item => item.id === id ? { ...item, stock: newStock } : item);
-
-    // setUpdatedStock(updatedStock);
+  function handleRoleChange(id, newRole) {
+    const updatedUsers = data.map(currentUser => currentUser.id === id ? { ...currentUser, role: newRole } : currentUser);
+    updateUsers(updatedUsers);
   }
 
-  function handleGeneralStockChange(id, newStock) {
-
-    const updatedStock = data.map(item => item.id === id ? { ...item, stock: newStock } : item);
-
-    setUpdatedStock(updatedStock);
+  function handleEnableChange(id, isEnabled) {
+    const updatedUsers = data.map(currentUser => currentUser.id === id ? { ...currentUser, enabled: Boolean(isEnabled) } : currentUser);
+    console.log("users", updatedUsers);
+    updateUsers(updatedUsers);
   }
 
-
+  // Persist changes to users
   async function handleOnSubmit() {
-    console.log("updatedStock", updatedStock);
-    if (updatedStock) {
-      const response = await fetch(`${API_LOC}:${PORT}/api/paints/`, {
-        method: 'POST',
+    if (users) {
+      console.log('Upcoming changes, ', users);
+      const response = await fetch(`${API_LOC}:${PORT}/api/users/`, {
+        method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ paint: updatedStock }),
+        body: JSON.stringify({ users: users }),
       });
 
       if (!response.ok) {
@@ -58,7 +49,7 @@ function Admin() {
       }
 
       // Return the updated data
-      navigate('/');
+      return navigate('/');
     }
 
     //TODO submitting no changes
@@ -77,16 +68,10 @@ function Admin() {
           <UserBox
             key={item.id}
             item={item}
-            onUserChange={handleGeneralUserChange}
-          />
-          // <div key={item.id}>
 
-          //   <p>Username: {item.userName}</p>
-          //   <p>First Name: {item.firstName}</p>
-          //   <p>Last Name: {item.lastName}</p>
-          //   <p>Role: {item.role}</p>
-          //   <p>Enabled: {item.enabled ? 'true' : 'false'}</p>
-          // </div>
+            handleRoleChange={handleRoleChange}
+            handleEnableChange={handleEnableChange}
+          />
         ))}
       </div>
       <button onClick={handleOnSubmit}>Update Users</button>
