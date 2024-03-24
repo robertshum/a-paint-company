@@ -23,8 +23,7 @@ function ShowPaint() {
           item.stock > 6 && (
             <PaintBox
               key={item.id}
-              item={item}
-              edit={false} />
+              item={item} />
           )
         ))}
 
@@ -33,8 +32,7 @@ function ShowPaint() {
           item.stock <= 5 && item.stock > 0 && (
             <PaintBox
               key={item.id}
-              item={item}
-              edit={false} />
+              item={item} />
           )
         ))}
 
@@ -43,8 +41,7 @@ function ShowPaint() {
           item.stock === 0 && (
             <PaintBox
               key={item.id}
-              item={item}
-              edit={false} />
+              item={item} />
           )
         ))}
 
