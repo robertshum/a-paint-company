@@ -5,28 +5,32 @@
       "userName": "johndoe",
       "firstName": "john",
       "lastName": "doe",
-      "role": "View"
+      "role": "View",
+      "enabled": "true"
     },
     {
       "id": 2,
       "userName": "janedoe",
       "firstName": "jane",
       "lastName": "doe",
-      "role": "PaintAdmin"
+      "role": "PaintAdmin",
+      "enabled": true
     },
     {
       "id": 3,
       "userName": "painter1",
       "firstName": "rob",
       "lastName": "shum",
-      "role": "Painter"
+      "role": "Painter",
+      "enabled": true
     },
     {
       "id": 4,
       "userName": "admin",
       "firstName": "adam",
       "lastName": "doe",
-      "role": "Admin"
+      "role": "Admin",
+      "enabled": true
     }
   ],
   "paint": [

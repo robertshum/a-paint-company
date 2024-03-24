@@ -1,7 +1,8 @@
 import { useQuery } from 'react-query';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import PaintBox from '../components/PaintBox';
+import UserBox from '../components/UserBox';
+
 const API_LOC = import.meta.env.VITE_API_LOCATION;
 const PORT = import.meta.env.VITE_API_PORT;
 function Admin() {
@@ -10,9 +11,15 @@ function Admin() {
   const navigate = useNavigate();
   const [updatedStock, setUpdatedStock] = useState(null);
 
+  // state for enabled/disabled
+  const [selectedValue, setSelectedValue] = useState('');
+  const handleChange = (event) => {
+    setSelectedValue(event.target.value);
+  };
+
   // Get Paint Stock on the main page
-  const { data, isLoading, error } = useQuery('paints', async () => {
-    const response = await fetch(`${API_LOC}:${PORT}/api/paints`);
+  const { data, isLoading, error } = useQuery('users', async () => {
+    const response = await fetch(`${API_LOC}:${PORT}/api/users`);
     if (!response.ok) {
       console.log('Network response was not ok');
     }
@@ -20,12 +27,20 @@ function Admin() {
     return response.json();
   });
 
+  function handleGeneralUserChange(id, newStock) {
+
+    // const updatedStock = data.map(item => item.id === id ? { ...item, stock: newStock } : item);
+
+    // setUpdatedStock(updatedStock);
+  }
+
   function handleGeneralStockChange(id, newStock) {
 
     const updatedStock = data.map(item => item.id === id ? { ...item, stock: newStock } : item);
 
     setUpdatedStock(updatedStock);
   }
+
 
   async function handleOnSubmit() {
     console.log("updatedStock", updatedStock);
@@ -59,14 +74,22 @@ function Admin() {
       <div className="stock-box">
         <h3>Admin Panel</h3>
         {data.map((item) => (
-          <PaintBox
+          <UserBox
             key={item.id}
             item={item}
-            edit={"full"}
-            onStockChange={handleGeneralStockChange} />
+            onUserChange={handleGeneralUserChange}
+          />
+          // <div key={item.id}>
+
+          //   <p>Username: {item.userName}</p>
+          //   <p>First Name: {item.firstName}</p>
+          //   <p>Last Name: {item.lastName}</p>
+          //   <p>Role: {item.role}</p>
+          //   <p>Enabled: {item.enabled ? 'true' : 'false'}</p>
+          // </div>
         ))}
       </div>
-      <button onClick={handleOnSubmit}>Update Stock</button>
+      <button onClick={handleOnSubmit}>Update Users</button>
     </>
   );
 }
