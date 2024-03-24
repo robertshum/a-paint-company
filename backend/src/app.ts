@@ -34,6 +34,25 @@ router.post('/paints', (req: Request, res: Response) => {
   res.json(200);
 });
 
+router.get('/users', (req: Request, res: Response) => {
+  const data = JSON.parse(fs.readFileSync(dbPath, "utf-8"));
+  res.json(data.users);
+});
+
+// Update user settings
+router.post('/users', (req: Request, res: Response) => {
+  const data = JSON.parse(fs.readFileSync(dbPath, "utf-8"));
+  const newData = req.body;
+  console.log("newData", newData);
+
+  //update the stock here
+  data.users = newData.users;
+
+  //persist:
+  fs.writeFileSync(dbPath, JSON.stringify(data, null, 2));
+  res.json(200);
+});
+
 router.get('/paintremoval', (req: Request, res: Response) => {
   const data = JSON.parse(fs.readFileSync(dbPath, "utf-8"));
   const users = data.users;
