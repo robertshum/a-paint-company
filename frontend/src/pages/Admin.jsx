@@ -19,6 +19,10 @@ function Admin() {
     }
 
     return response.json();
+  }, {
+    // don't cache the response
+    staleTime: 2000,
+    cacheTime: 0,
   });
 
   function handleRoleChange(id, newRole) {
@@ -28,13 +32,12 @@ function Admin() {
 
   function handleEnableChange(id, isEnabled) {
     const updatedUsers = data.map(currentUser => currentUser.id === id ? { ...currentUser, enabled: Boolean(isEnabled) } : currentUser);
-    console.log("users", updatedUsers);
     updateUsers(updatedUsers);
   }
 
   // Persist changes to users
   async function handleOnSubmit() {
-    if (users) {
+    if (users && users.length !== 0) {
       console.log('Upcoming changes, ', users);
       const response = await fetch(`${API_LOC}:${PORT}/api/users/`, {
         method: 'PATCH',
