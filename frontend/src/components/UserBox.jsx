@@ -5,6 +5,7 @@ function UserBox(props) {
 
   const user = props.item;
 
+  // unique id's for the forms and labels
   const enabledId = user.id + "enabled-id";
   const roleId = user.id + "role-id";
 
@@ -16,7 +17,6 @@ function UserBox(props) {
 
   function handleEnabledChange() {
 
-    // console.log("isenabled", isEnabled);
     // Toggle the value of isChecked when the checkbox is clicked
     setIsChecked(!isChecked);
 
