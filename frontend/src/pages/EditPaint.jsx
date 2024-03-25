@@ -17,8 +17,9 @@ function EditPaint() {
       console.log('Network response was not ok');
     }
 
-    setUpdatedStock(data);
-    return response.json();
+    const responseData = await response.json();
+    setUpdatedStock(responseData);
+    return responseData;
   });
 
   // go through the existing state, and map through each item
@@ -37,7 +38,6 @@ function EditPaint() {
 
   // When user saves the paint stock
   async function handleOnSubmit() {
-    console.log("updatedStock ", updatedStock);
     if (updatedStock) {
       const response = await fetch(`${API_LOC}:${PORT}/api/paints/`, {
         method: 'PATCH',

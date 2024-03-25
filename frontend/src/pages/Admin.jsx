@@ -16,29 +16,42 @@ function Admin() {
     if (!response.ok) {
       console.log('Network response was not ok');
     }
-
-    return response.json();
+    
+    const responseData = await response.json();
+    updateUsers(responseData || []);
+    return responseData;
   }, {
     // don't cache the response, refresh frequently or else it might load stale data
     staleTime: 2000,
     cacheTime: 0,
   });
 
-  // update state of the users based on the role
   function handleRoleChange(id, newRole) {
-    const updatedUsers = data.map(currentUser => currentUser.id === id ? { ...currentUser, role: newRole } : currentUser);
-    updateUsers(updatedUsers);
+    updateUsers(previousUsers => {
+      return previousUsers.map(user => {
+        if (user.id === id) {
+          return { ...user, role: newRole, enabled: user.enabled };
+        }
+        return user;
+      });
+    });
   }
 
-  // update state of the users based on the updated enabled/disabled status
   function handleEnableChange(id, isEnabled) {
-    const updatedUsers = data.map(currentUser => currentUser.id === id ? { ...currentUser, enabled: Boolean(isEnabled) } : currentUser);
-    updateUsers(updatedUsers);
+    console.log("isenabled, ", isEnabled);
+    updateUsers(previousUSers => {
+      return previousUSers.map(user => {
+        if (user.id === id) {
+          return { ...user, enabled: isEnabled, role: user.role };
+        }
+        return user;
+      });
+    });
   }
 
   // Persist changes to users
   async function handleOnSubmit() {
-    if (users && users.length !== 0) {
+    if (users.length > 0) {
       const response = await fetch(`${API_LOC}:${PORT}/api/users/`, {
         method: 'PATCH',
         headers: {

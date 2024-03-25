@@ -13,12 +13,12 @@ function UserBox(props) {
   const [isChecked, setIsChecked] = useState(Boolean(user.enabled));
 
   // Define state for the selected role
-  const [selectedRole, setSelectedRole] = useState(user.role);
+  const [selectedRole, setSelectedRole] = useState(user.role || 'View');
 
   function handleEnabledChange() {
 
     // Toggle the value of isChecked when the checkbox is clicked
-    setIsChecked(!isChecked);
+    setIsChecked(prevCheck => !prevCheck);
 
     // update the user in the parent
     props.handleEnableChange(user.id, !isChecked);
