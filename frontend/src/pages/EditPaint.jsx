@@ -8,7 +8,7 @@ const PORT = import.meta.env.VITE_API_PORT;
 function EditPaint() {
 
   const navigate = useNavigate();
-  const [updatedStock, setUpdatedStock] = useState(null);
+  const [updatedStock, setUpdatedStock] = useState([]);
 
   // Get Paint Stock on the main page
   const { data, isLoading, error } = useQuery('paints', async () => {
@@ -17,19 +17,27 @@ function EditPaint() {
       console.log('Network response was not ok');
     }
 
+    setUpdatedStock(data);
     return response.json();
   });
 
-  // Update the state of the paint stock in component
+  // go through the existing state, and map through each item
+  // if the id matches, return that item and update the stock
+  // otherwise, just return the original item
   function handleGeneralStockChange(id, newStock) {
-
-    const updatedStock = data.map(item => item.id === id ? { ...item, stock: newStock } : item);
-
-    setUpdatedStock(updatedStock);
+    setUpdatedStock(prevStock => {
+      return prevStock.map(item => {
+        if (item.id === id) {
+          return { ...item, stock: newStock };
+        }
+        return item;
+      });
+    });
   }
 
   // When user saves the paint stock
   async function handleOnSubmit() {
+    console.log("updatedStock ", updatedStock);
     if (updatedStock) {
       const response = await fetch(`${API_LOC}:${PORT}/api/paints/`, {
         method: 'PATCH',
