@@ -24,7 +24,7 @@ function ShowPaint() {
 
         {/* Available Stock > 6 units */}
         <section className="kanban-section">
-          <h3>Available</h3>
+          <h3 className="headers">Available</h3>
           <div className="stock-box">
 
             {data.map((item) => (
@@ -39,7 +39,7 @@ function ShowPaint() {
 
         {/* Low Stock <= 5 units */}
         <section className="kanban-section">
-          <h3>Low Stock</h3>
+          <h3 className="headers">Low Stock</h3>
           <div className="stock-box">
 
             {data.map((item) => (
@@ -54,7 +54,7 @@ function ShowPaint() {
 
         {/* Out of Stock = 0 units */}
         <section className="kanban-section">
-          <h3>Out of Stock</h3>
+          <h3 className="headers">Out of Stock</h3>
           <div className="stock-box">
 
             {data.map((item) => (

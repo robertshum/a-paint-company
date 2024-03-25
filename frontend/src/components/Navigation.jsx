@@ -6,6 +6,7 @@ function Navigation() {
   return (
     <>
       <nav className='topnav'>
+        <h3 className="active">APC 🎨</h3>
         <Link to="/" className="active">Home</Link>
         <Link to="/editpaint" className="active">Edit Stock</Link>
         <Link to="/admin" className="active">Admin</Link>

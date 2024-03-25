@@ -59,7 +59,7 @@ function EditPaint() {
     <>
       {/* Show paint boxes to modify stock */}
       <section className="kanban-section">
-        <h3>Edit Paint Stock</h3>
+        <h3 className="headers">Edit Paint Stock</h3>
         <div className="stock-box">
 
           {data.map((item) => (

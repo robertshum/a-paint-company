@@ -67,7 +67,7 @@ function Admin() {
     <>
       {/* Admin Panel to modify roles/enabled/disabled */}
       <section className="kanban-section">
-        <h3>Admin Panel</h3>
+        <h3 className="headers">Admin Panel</h3>
         <div className="stock-box">
           {data.map((item) => (
             <UserBox
