@@ -37,7 +37,7 @@
   list-style-type: none;
   margin: 0;
   padding: 0;
-  background-color: #ffb302;
+  background-color: #eeeeee;
   position: fixed;
   top: 0;
   left: 0;
@@ -45,6 +45,8 @@
   /* entire width of the device */
   width: 100%;
   align-items: center;
+
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
 }
 
 .topnav a {
@@ -56,7 +58,7 @@
 }
 
 .active {
-  background-color: #ffb302;
+  background-color: #eeeeee;
   color: black;
 }
 
