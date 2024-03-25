@@ -2,6 +2,7 @@ import { useQuery } from 'react-query';
 import PaintBox from '../components/PaintBox';
 const API_LOC = import.meta.env.VITE_API_LOCATION;
 const PORT = import.meta.env.VITE_API_PORT;
+
 function ShowPaint() {
 
   // Get Paint Stock on the main page
@@ -20,6 +21,8 @@ function ShowPaint() {
   return (
     <>
       <div className="stock">
+
+        {/* Available Stock > 6 units */}
         <section className="kanban-section">
           <h3>Available</h3>
           <div className="stock-box">
@@ -33,6 +36,8 @@ function ShowPaint() {
             ))}
           </div>
         </section>
+
+        {/* Low Stock <= 5 units */}
         <section className="kanban-section">
           <h3>Low Stock</h3>
           <div className="stock-box">
@@ -46,6 +51,8 @@ function ShowPaint() {
             ))}
           </div>
         </section>
+
+        {/* Out of Stock = 0 units */}
         <section className="kanban-section">
           <h3>Out of Stock</h3>
           <div className="stock-box">

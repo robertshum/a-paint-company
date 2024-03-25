@@ -77,14 +77,3 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
-
- @media screen and (orientation:portrait) {
-     /* Portrait styles */
-     /*set width to 100px */
-
- }
- @media screen and (orientation:landscape) {
-     /* Landscape styles */
-     /* set width to 200px*/
-
- }

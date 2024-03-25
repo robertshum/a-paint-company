@@ -10,9 +10,11 @@ function App() {
 
   return (
     <BrowserRouter>
+      {/* Main Nav Bar */}
       <Navigation />
       <Routes>
         <Route path="/" element={<Navigation />}>
+          {/* Default homepage is the show paint stock screen */}
           <Route index element={<ShowPaint />} />
           <Route path="editpaint" element={<EditPaint />} />
           <Route path="admin" element={<Admin />} />

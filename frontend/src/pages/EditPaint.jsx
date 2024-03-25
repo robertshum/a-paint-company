@@ -20,6 +20,7 @@ function EditPaint() {
     return response.json();
   });
 
+  // Update the state of the paint stock in component
   function handleGeneralStockChange(id, newStock) {
 
     const updatedStock = data.map(item => item.id === id ? { ...item, stock: newStock } : item);
@@ -27,8 +28,8 @@ function EditPaint() {
     setUpdatedStock(updatedStock);
   }
 
+  // When user saves the paint stock
   async function handleOnSubmit() {
-    console.log("updatedStock", updatedStock);
     if (updatedStock) {
       const response = await fetch(`${API_LOC}:${PORT}/api/paints/`, {
         method: 'PATCH',
@@ -42,11 +43,11 @@ function EditPaint() {
         console.log('Failed to update stock');
       }
 
-      // Return the updated data
+      // Return back home
       return navigate('/');
     }
 
-    //TODO submitting no changes
+    //submitting no changes
     console.log('There are no changes to submit');
   }
 
@@ -56,6 +57,7 @@ function EditPaint() {
 
   return (
     <>
+      {/* Show paint boxes to modify stock */}
       <section className="kanban-section">
         <h3>Edit Paint Stock</h3>
         <div className="stock-box">
