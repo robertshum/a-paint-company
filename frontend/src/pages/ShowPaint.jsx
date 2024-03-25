@@ -19,34 +19,46 @@ function ShowPaint() {
 
   return (
     <>
-      <div className="stock-box">
-        <h3>Available</h3>
-        {data.map((item) => (
-          item.stock > 6 && (
-            <PaintBox
-              key={item.id}
-              item={item} />
-          )
-        ))}
+      <div className="stock">
+        <section className="kanban-section">
+          <h3>Available</h3>
+          <div className="stock-box">
 
-        <h3>Low Stock</h3>
-        {data.map((item) => (
-          item.stock <= 5 && item.stock > 0 && (
-            <PaintBox
-              key={item.id}
-              item={item} />
-          )
-        ))}
+            {data.map((item) => (
+              item.stock > 6 && (
+                <PaintBox
+                  key={item.id}
+                  item={item} />
+              )
+            ))}
+          </div>
+        </section>
+        <section className="kanban-section">
+          <h3>Low Stock</h3>
+          <div className="stock-box">
 
-        <h3>Out of Stock</h3>
-        {data.map((item) => (
-          item.stock === 0 && (
-            <PaintBox
-              key={item.id}
-              item={item} />
-          )
-        ))}
+            {data.map((item) => (
+              item.stock <= 5 && item.stock > 0 && (
+                <PaintBox
+                  key={item.id}
+                  item={item} />
+              )
+            ))}
+          </div>
+        </section>
+        <section className="kanban-section">
+          <h3>Out of Stock</h3>
+          <div className="stock-box">
 
+            {data.map((item) => (
+              item.stock === 0 && (
+                <PaintBox
+                  key={item.id}
+                  item={item} />
+              )
+            ))}
+          </div>
+        </section>
       </div>
     </>
   );
