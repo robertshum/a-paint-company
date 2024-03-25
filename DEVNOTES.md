@@ -84,7 +84,7 @@ Possible Menu Options and pages (not final).
 
 * What happens if I 'drag' BLUE with 100 stock from available to low stock?  I'm not sure what that means for the actual stock afterwards.
 * No acceptance criteria, no user story, so I will make up my ranges so that paint stock falls into 'swim lanes'.
-  * Available, paint > 6 stock.
+  * Available, paint >= 6 stock.
   * low stock, paint > 0 <= 5 stock.
   * out of stock, paint = 0 stock.
 

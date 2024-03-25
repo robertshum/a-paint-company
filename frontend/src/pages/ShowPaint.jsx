@@ -28,7 +28,7 @@ function ShowPaint() {
           <div className="stock-box">
 
             {data.map((item) => (
-              item.stock > 6 && (
+              item.stock >= 6 && (
                 <PaintBox
                   key={item.id}
                   item={item} />
