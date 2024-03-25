@@ -10,6 +10,10 @@ function EditPaint() {
   const navigate = useNavigate();
   const [updatedStock, setUpdatedStock] = useState([]);
 
+  // Handle button disable
+  const [disableButton, setDisableButton] = useState(false);
+
+
   // Get Paint Stock on the main page
   const { data, isLoading, error } = useQuery('paints', async () => {
     const response = await fetch(`${API_LOC}:${PORT}/api/paints`);
@@ -75,12 +79,16 @@ function EditPaint() {
               key={item.id}
               item={item}
               edit={"full"}
-              onStockChange={handleGeneralStockChange} />
+              onStockChange={handleGeneralStockChange}
+              setDisableButton={setDisableButton}
+            />
           ))}
         </div>
       </section>
 
-      <button onClick={handleOnSubmit}>Update Stock</button>
+      <button
+        onClick={handleOnSubmit}
+        disabled={disableButton}>Update Stock</button>
     </>
   );
 }

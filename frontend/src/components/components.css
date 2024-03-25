@@ -17,6 +17,10 @@
   align-content: right;
 }
 
+.stockError{
+  border-color: red;
+}
+
 .paint-box {
   width: 100px;
   height: 100px;
