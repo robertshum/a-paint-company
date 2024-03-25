@@ -36,3 +36,6 @@ Clone repo: ```git clone git@github.com:robertshum/a-paint-company.git```
 ### Back-end
 [![Back-end](https://img.youtube.com/vi/DMdnGnVf9Qo/0.jpg)](https://www.youtube.com/watch?v=DMdnGnVf9Qo)
 
+
+### Input Validation
+[![Back-end](https://github.com/robertshum/a-paint-company/blob/main/frontend/public/input_validation.png)]
