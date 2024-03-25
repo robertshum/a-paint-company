@@ -65,18 +65,22 @@ function Admin() {
 
   return (
     <>
-      <div className="stock-box">
-        <h3>Admin Panel</h3>
-        {data.map((item) => (
-          <UserBox
-            key={item.id}
-            item={item}
+      <section className="kanban-section">
 
-            handleRoleChange={handleRoleChange}
-            handleEnableChange={handleEnableChange}
-          />
-        ))}
-      </div>
+        <h3>Admin Panel</h3>
+        <div className="stock-box">
+
+          {data.map((item) => (
+            <UserBox
+              key={item.id}
+              item={item}
+
+              handleRoleChange={handleRoleChange}
+              handleEnableChange={handleEnableChange}
+            />
+          ))}
+        </div>
+      </section>
       <button onClick={handleOnSubmit}>Update Users</button>
     </>
   );

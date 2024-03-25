@@ -56,16 +56,20 @@ function EditPaint() {
 
   return (
     <>
-      <div className="stock-box">
+      <section className="kanban-section">
         <h3>Edit Paint Stock</h3>
-        {data.map((item) => (
-          <PaintBox
-            key={item.id}
-            item={item}
-            edit={"full"}
-            onStockChange={handleGeneralStockChange} />
-        ))}
-      </div>
+        <div className="stock-box">
+
+          {data.map((item) => (
+            <PaintBox
+              key={item.id}
+              item={item}
+              edit={"full"}
+              onStockChange={handleGeneralStockChange} />
+          ))}
+        </div>
+      </section>
+
       <button onClick={handleOnSubmit}>Update Stock</button>
     </>
   );

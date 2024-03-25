@@ -35,8 +35,8 @@ function UserBox(props) {
 
   return (
     <>
-      <div className="paint-stock" key={user.id}>
-        <p>Username: {user.userName}</p>
+      <div className="user-stock" key={user.id}>
+        <h4>Username: {user.userName}</h4>
         <p>First Name: {user.firstName}</p>
         <p>Last Name: {user.lastName}</p>
 

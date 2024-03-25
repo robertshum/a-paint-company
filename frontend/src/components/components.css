@@ -1,27 +1,28 @@
-.paint-stock {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  margin: 10px;
-}
-
 .inline {
   display: flex;
   flex-direction: row;
 }
 
-/* flex based on landscape/vertical mode */
-/* .stock-box {
+.paint-stock{
+  margin-left:10px;
+  margin-right:10px;
+}
 
-} */
+.user-stock{
+  margin-left:10px;
+  margin-right:10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-content: right;
+}
 
 .paint-box {
   width: 100px;
   height: 100px;
   border: 1px solid black;
   padding: 1px;
-  margin: 1px;
+  margin: 8px;
 }
 
 #root {
@@ -57,4 +58,46 @@
 .active {
   background-color: #ffb302;
   color: black;
+}
+
+@media screen and (orientation:portrait) {
+  .stock-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 10px;
+  }
+
+  h3 {
+    margin-top: 35px;
+  }
+}
+
+@media screen and (orientation:landscape) {
+
+  .stock {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .stock-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0px;
+  }
+
+  .kanban-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items:flex-start;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  h3 {
+    margin-left: 10px;
+  }
 }
