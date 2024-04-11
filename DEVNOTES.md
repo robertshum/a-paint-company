@@ -1,14 +1,3 @@
-# Live Deployment
-
-* Back-end can be found deployed on AWS EC2 here: 
-  * http://54.188.20.64:3000/api/users
-  * http://54.188.20.64:3000/api/paints
-  * http://54.188.20.64:3000/
-* Front-end can be found deployed on Netlify here:
-  * https://6601225f54edec885f95191b--helpful-lily-4141c3.netlify.app/
-* !!NOTE!! Although they are both deployed, they have issues talking to each other as the back-end API is served over HTTP and the front end is over HTTPS.
-* local deployments needed for testing (see Readme).
-
 
 # Work Done / Missing
 * I focused on the user stories / acceptance critera as the primary objective.
@@ -16,6 +5,7 @@
 * CSS could use a little more work.
 * Tried to build a CI/CD pipeline with Github Pages/Actions and Netlify but I could not get it to work.
 * Did not have time to set up my HTTP API to serve HTTPS via. SSL.
+
 
 
 # Stack:
@@ -107,3 +97,17 @@ No Acceptance criteria, hard to deduce what it means to 'manage users'.
 
 The story is similar to Jane, but it's phrased in such a way that painter should only allowed to consume units of paint (for houses), but not update the stock, by increasing the amount.  For simplicity both users, can increase/decrease the stock.
 
+
+## Ngrock
+
+if using ngrock, we need to add a header to any requests sent to the router, for ex:
+
+```js
+    const response = await fetch(`https://ngrock_endpoint_address/api/paints/`,
+      {
+        // 69420 is the actual code to ignore
+        headers: new Headers({
+          "ngrok-skip-browser-warning": "69420",
+        })
+      });
+```
