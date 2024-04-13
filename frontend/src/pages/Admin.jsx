@@ -2,8 +2,7 @@ import { useQuery } from 'react-query';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import UserBox from '../components/UserBox';
-const API_LOC = import.meta.env.VITE_API_LOCATION;
-const PORT = import.meta.env.VITE_API_PORT;
+import config from '../common/config';
 
 function Admin() {
 
@@ -12,11 +11,11 @@ function Admin() {
 
   // Get Users
   const { data, isLoading, error } = useQuery('users', async () => {
-    const response = await fetch(`${API_LOC}:${PORT}/api/users`);
+    const response = await fetch(`${config.getPaintApiEndpoint()}/api/users`);
     if (!response.ok) {
       console.log('Network response was not ok');
     }
-    
+
     const responseData = await response.json();
     updateUsers(responseData || []);
     return responseData;
@@ -52,7 +51,7 @@ function Admin() {
   // Persist changes to users
   async function handleOnSubmit() {
     if (users.length > 0) {
-      const response = await fetch(`${API_LOC}:${PORT}/api/users/`, {
+      const response = await fetch(`${config.getPaintApiEndpoint()}/api/users/`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',

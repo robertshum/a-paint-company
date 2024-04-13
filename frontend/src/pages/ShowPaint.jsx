@@ -1,13 +1,12 @@
 import { useQuery } from 'react-query';
 import PaintBox from '../components/PaintBox';
-const API_LOC = import.meta.env.VITE_API_LOCATION;
-const PORT = import.meta.env.VITE_API_PORT;
+import config from '../common/config';
 
 function ShowPaint() {
 
   // Get Paint Stock on the main page
   const { data, isLoading, error } = useQuery('paints', async () => {
-    const response = await fetch(`${API_LOC}:${PORT}/api/paints`);
+    const response = await fetch(`${config.getPaintApiEndpoint()}/api/paints`);
     if (!response.ok) {
       console.log('Network response was not ok');
     }

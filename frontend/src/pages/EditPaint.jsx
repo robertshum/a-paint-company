@@ -2,8 +2,7 @@ import { useQuery } from 'react-query';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PaintBox from '../components/PaintBox';
-const API_LOC = import.meta.env.VITE_API_LOCATION;
-const PORT = import.meta.env.VITE_API_PORT;
+import config from '../common/config';
 
 function EditPaint() {
 
@@ -16,7 +15,7 @@ function EditPaint() {
 
   // Get Paint Stock on the main page
   const { data, isLoading, error } = useQuery('paints', async () => {
-    const response = await fetch(`${API_LOC}:${PORT}/api/paints`);
+    const response = await fetch(`${config.getPaintApiEndpoint()}/api/paints`);
     if (!response.ok) {
       console.log('Network response was not ok');
     }
@@ -43,7 +42,7 @@ function EditPaint() {
   // When user saves the paint stock
   async function handleOnSubmit() {
     if (updatedStock) {
-      const response = await fetch(`${API_LOC}:${PORT}/api/paints/`, {
+      const response = await fetch(`${config.getPaintApiEndpoint()}/api/paints/`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
