@@ -38,7 +38,11 @@ jobs:
           cache: 'npm'
           # caching npm dependencies in monorepos (BE and FE in same repo, ie: multiple package-lock.json)
           cache-dependency-path: ./frontend/package-lock.json
-          
+      
+      # Set environment variables
+      - name: Set API Endpoint
+        run: echo "VITE_API_LOCATION=${{ secrets.VITE_API_LOCATION }}" >> $GITHUB_ENV
+
       - name: Install dependencies
         working-directory: ./frontend
         run: npm ci
