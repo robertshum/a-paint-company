@@ -10,16 +10,16 @@ function App() {
 
   return (
     <BrowserRouter>
-      {/* Main Nav Bar */}
+      {/* nav bar */}
       <Navigation />
       <Routes>
-        <Route path="/" element={<Navigation />}>
-          {/* Default homepage is the show paint stock screen */}
-          <Route index element={<ShowPaint />} />
-          <Route path="editpaint" element={<EditPaint />} />
-          <Route path="admin" element={<Admin />} />
-          <Route path="*" element={<NoPage />} />
-        </Route>
+        {/* Default homepage is the show paint stock screen */}
+        <Route path="/" element={<ShowPaint />} />
+        {/* for github pages only, the root page is set to path below */}
+        <Route path="/a-paint-company" element={<ShowPaint />} />
+        <Route path="editpaint" element={<EditPaint />} />
+        <Route path="admin" element={<Admin />} />
+        <Route path="*" element={<NoPage />} />
       </Routes>
     </BrowserRouter>
   );
