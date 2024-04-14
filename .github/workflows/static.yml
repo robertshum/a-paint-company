@@ -69,6 +69,8 @@ jobs:
   deployBackend:
     name: 'Deploy Back-end on EC2'
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
 
     steps:
       - name: "Execute remote ssh commands using ssh key"
