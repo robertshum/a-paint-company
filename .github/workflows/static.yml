@@ -1,5 +1,5 @@
 # Simple workflow for deploying static content to GitHub Pages
-name: Deploy static content to Pages
+name: Deploy project to GH pages (Front-end) and EC2 (Back-end)
 
 on:
   # Runs on pushes targeting the default branch
@@ -21,8 +21,9 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  # Single deploy job since we're just deploying
-  deploy:
+  # Front end deployment
+  deployFrontend:
+    name: 'Deploy Front-end GH Pages'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -63,3 +64,17 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  # Back-end deployment
+  deployBackend:
+    name: 'Deploy Back-end on EC2'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: "Execute remote ssh commands using ssh key"
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.AWS_HOST }}
+          username: ${{ secrets.AWS_USER }}
+          key: ${{ secrets.AWS_KEY }}
+          script: sh deploy.sh

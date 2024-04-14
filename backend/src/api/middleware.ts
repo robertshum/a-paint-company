@@ -14,7 +14,7 @@ function applyRoutes(app: any) {
 
   // ...a friendly greeting
   app.get('/', (req: Request, res: Response) => {
-    res.json({ id: 1, message: 'Hello Paint World' });
+    res.json({ id: 1, message: 'Hello Paint World!!!' });
   });
 
   //all routes lead to rome, err... here.
