@@ -72,7 +72,7 @@ jobs:
 
     steps:
       - name: "Execute remote ssh commands using ssh key"
-        uses: appleboy/ssh-action@master
+        uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.AWS_HOST }}
           username: ${{ secrets.AWS_USER }}
