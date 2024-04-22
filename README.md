@@ -1,6 +1,10 @@
 # Intro
 
-Part of the competition for IS21 FS Developer.  Build a full stack application that allow users to manage and view paint stock, among other features as outlined in the user stories.
+Currently, I am using this project as practice to manage CI/CD pipelines using Github Actions.  Front-end is published with Github Pages, and back-end is deployed on a EC2 instance.  The back-end is sitting behind a Nginx reverse proxy server.
+
+Notes regarding this pipeline can be found  here: https://github.com/robertshum/lighthouse-web-notes/tree/main/DevOps
+
+Originally developed as part of the competition for IS21 FS Developer for BC Public Service.  Build a full stack application that allow users to manage and view paint stock, among other features as outlined in the user stories.  Separate the back and front end logic.
 
 # Setup
 
