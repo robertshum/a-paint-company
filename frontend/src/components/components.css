@@ -3,21 +3,21 @@
   flex-direction: row;
 }
 
-.paint-stock{
-  margin-left:10px;
-  margin-right:10px;
+.paint-stock {
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
-.user-stock{
-  margin-left:10px;
-  margin-right:10px;
+.user-stock {
+  margin-left: 10px;
+  margin-right: 10px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   align-content: right;
 }
 
-.stockError{
+.stockError {
   border-color: red;
 }
 
@@ -50,7 +50,7 @@
   width: 100%;
   align-items: center;
 
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2);
 }
 
 .topnav a {
@@ -64,6 +64,28 @@
 .active {
   background-color: #eeeeee;
   color: black;
+}
+
+.kanban-section {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.kanban-section.available {
+  background-color:rgb(172, 212, 252);
+}
+
+.kanban-section.low {
+  background-color:rgb(117, 186, 255);
+}
+
+.kanban-section.out {
+  background-color:rgb(32, 143, 255);
 }
 
 @media screen and (orientation:portrait) {
@@ -92,15 +114,6 @@
     flex-direction: row;
     justify-content: space-between;
     margin: 0px;
-  }
-
-  .kanban-section {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items:flex-start;
-    margin-left: 10px;
-    margin-right: 10px;
   }
 
   h3 {

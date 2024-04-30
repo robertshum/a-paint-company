@@ -22,7 +22,7 @@ function ShowPaint() {
       <div className="stock">
 
         {/* Available Stock > 6 units */}
-        <section className="kanban-section">
+        <section className="kanban-section available">
           <h3 className="headers">Available</h3>
           <div className="stock-box">
 
@@ -37,7 +37,7 @@ function ShowPaint() {
         </section>
 
         {/* Low Stock <= 5 units */}
-        <section className="kanban-section">
+        <section className="kanban-section low">
           <h3 className="headers">Low Stock</h3>
           <div className="stock-box">
 
@@ -52,7 +52,7 @@ function ShowPaint() {
         </section>
 
         {/* Out of Stock = 0 units */}
-        <section className="kanban-section">
+        <section className="kanban-section out">
           <h3 className="headers">Out of Stock</h3>
           <div className="stock-box">
 
