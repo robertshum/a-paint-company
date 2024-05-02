@@ -39,6 +39,7 @@ jobs:
           tags: shumbum/a-painting-company:latest
 
   deployDockerBackend:
+    needs: dockerBuildPush
     name: 'Deploy Back-end on EC2'
     runs-on: ubuntu-latest
     environment:
@@ -57,5 +58,5 @@ jobs:
           host: ${{ secrets.AWS_HOST }}
           username: ${{ secrets.AWS_USER }}
           key: ${{ secrets.AWS_KEY }}
-          script: sh pullDeployDocker.sh
           envs: IMAGE_NAME,TAG,HOST_PORT,CONTAINER_PORT,CONTAINER_NAME
+          script: sh pullDeployDocker.sh
