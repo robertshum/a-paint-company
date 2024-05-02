@@ -10,6 +10,9 @@ RUN npm install
 # copies everything 'here', from where 'docker build' is executed to the WORKDIR
 COPY . .
 
+# Compile TypeScript files to JavaScript (if needed)
+RUN npm run build
+
 ENV PORT=3000
 
 EXPOSE 3000
