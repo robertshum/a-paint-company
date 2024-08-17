@@ -1,10 +1,8 @@
 # Intro
 
-Currently, I am using this project as practice to manage CI/CD pipelines using Github Actions.  Front-end is published with Github Pages, and back-end is deployed on a EC2 instance.  The back-end is sitting behind a Nginx reverse proxy server.
+For students following along, please follow instructions set out by instructions set out in Trello.
 
-Notes regarding this pipeline can be found  here: https://github.com/robertshum/lighthouse-web-notes/tree/main/DevOps
-
-Originally developed as part of the competition for IS21 FS Developer for BC Public Service.  Build a full stack application that allow users to manage and view paint stock, among other features as outlined in the user stories.  Separate the back and front end logic.
+Practice provisioning CI/CD pipelines using Github Actions.  Front-end is published with Github Pages, and back-end is deployed on a EC2 instance.  The back-end is sitting behind a Nginx reverse proxy server.
 
 # Setup
 
